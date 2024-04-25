@@ -1,0 +1,43 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <h2><b>Registration Details</b></h2>
+    <br/>
+    <div>
+      <label for="name">Name:-</label>
+      <input type="text" id="name" formControlName="name" pattern="[a-zA-Z ]*">
+      <div *ngIf="form['name'].touched && form['name'].errors?.['pattern']" class="error">Only letters and spaces are allowed</div>
+      <div *ngIf="form['name'].touched && form['name'].errors?.['required']" class="error">Name is required</div>
+    </div>
+ 
+    <div>
+      <label for="email">Email:-</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="form['email'].touched && form['email'].errors?.['required']" class="error">Email is required</div>
+      <div *ngIf="form['email'].touched && form['email'].errors?.['email']" class="error">Invalid email format</div>
+    </div>  
+ 
+    <div>
+      <label for="subject">Subject:-</label>
+      <input type="text" id="subject" formControlName="subject" pattern="[a-zA-Z ]*">
+      <div *ngIf="form['subject'].touched && form['subject'].errors?.['pattern']" class="error">Only letters and spaces are allowed</div>
+      <div *ngIf="form['subject'].touched && form['subject'].errors?.['required']" class="error">Subject is required</div>
+      <div *ngIf="form['subject'].touched && form['subject'].errors?.['maxLengthExceeded']" class="error">Subject cannot exceed 100 words</div>
+    </div>
+ 
+    <div>
+      <label for="message">Message:-</label>
+      <textarea id="message" formControlName="message" pattern="[a-zA-Z ]*"></textarea>
+      <div *ngIf="form['message'].touched && form['message'].errors?.['pattern']" class="error">Only letters and spaces are allowed</div>
+      <div *ngIf="form['message'].touched && form['message'].errors?.['required']" class="error">Message is required</div>
+      <div *ngIf="form['message'].touched && form['message'].errors?.['maxLengthExceeded']" class="error">Message cannot exceed 250 words</div>
+    </div>
+ 
+    <button class="bg-success" type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </form>
+ 
+  <div *ngIf="submittedData">
+    <h2>Submitted Data</h2>
+    <p><strong>Name:-</strong> {{ submittedData.name }}</p>
+    <p><strong>Email:-</strong> {{ submittedData.email }}</p>
+    <p><strong>Subject:-</strong> {{ submittedData.subject }}</p>
+    <p><strong>Message:-</strong> {{ submittedData.message }}</p>
+  </div>

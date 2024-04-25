@@ -1,0 +1,44 @@
+/* user-form.component.css */
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  form div {
+    margin-bottom: 10px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  form textarea {
+    height: 100px;
+  }
+  
+  form .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  form button[type="submit"] {
+    background-color: #4CAF50;
+  }
+  
